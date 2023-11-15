@@ -421,6 +421,60 @@ func BuildEdge101() ClientProfile {
 				}, nil
 			},
 		},
+		settings: map[http2.SettingID]uint32{
+			http2.SettingHeaderTableSize:   65536,
+			http2.SettingInitialWindowSize: 6291456,
+			http2.SettingMaxFrameSize:      16384,
+		},
+		settingsOrder: []http2.SettingID{
+			http2.SettingHeaderTableSize,
+			http2.SettingInitialWindowSize,
+			http2.SettingMaxFrameSize,
+		},
+		pseudoHeaderOrder: []string{
+			":method",
+			":path",
+			":authority",
+			":scheme",
+		},
+		connectionFlow: 15663105,
+		headerPriority: &http2.PriorityParam{
+			StreamDep: 0,
+			Exclusive: true,
+			Weight:    41,
+		},
+		priorities: []http2.Priority{
+			{StreamID: 3, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    200,
+			}},
+			{StreamID: 5, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    100,
+			}},
+			{StreamID: 7, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    0,
+			}},
+			{StreamID: 9, PriorityParam: http2.PriorityParam{
+				StreamDep: 7,
+				Exclusive: false,
+				Weight:    0,
+			}},
+			{StreamID: 11, PriorityParam: http2.PriorityParam{
+				StreamDep: 3,
+				Exclusive: false,
+				Weight:    0,
+			}},
+			{StreamID: 13, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    240,
+			}},
+		},
 	}
 }
 
@@ -491,6 +545,60 @@ func BuildSafari15() ClientProfile {
 					Extensions: extensions,
 				}, nil
 			},
+		},
+		settings: map[http2.SettingID]uint32{
+			//http2.SettingHeaderTableSize:   65536,
+			http2.SettingInitialWindowSize: 4194304,
+			//http2.SettingMaxFrameSize:      16384,
+		},
+		settingsOrder: []http2.SettingID{
+			http2.SettingHeaderTableSize,
+			http2.SettingInitialWindowSize,
+			http2.SettingMaxFrameSize,
+		},
+		pseudoHeaderOrder: []string{
+			":method",
+			":path",
+			":authority",
+			":scheme",
+		},
+		connectionFlow: 12517377,
+		headerPriority: &http2.PriorityParam{
+			StreamDep: 100,
+			Exclusive: false,
+			Weight:    41,
+		},
+		priorities: []http2.Priority{
+			{StreamID: 3, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    200,
+			}},
+			{StreamID: 5, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    100,
+			}},
+			{StreamID: 7, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    0,
+			}},
+			{StreamID: 9, PriorityParam: http2.PriorityParam{
+				StreamDep: 7,
+				Exclusive: false,
+				Weight:    0,
+			}},
+			{StreamID: 11, PriorityParam: http2.PriorityParam{
+				StreamDep: 3,
+				Exclusive: false,
+				Weight:    0,
+			}},
+			{StreamID: 13, PriorityParam: http2.PriorityParam{
+				StreamDep: 0,
+				Exclusive: false,
+				Weight:    240,
+			}},
 		},
 	}
 }
