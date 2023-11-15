@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/bogdanfinn/tls-client/profiles"
+	"github.com/divinedev111/tls-client/profiles"
 	"net"
 	"strings"
 	"sync"

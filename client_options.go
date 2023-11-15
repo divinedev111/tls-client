@@ -3,7 +3,7 @@ package tls_client
 import (
 	"crypto/x509"
 	"fmt"
-	"github.com/bogdanfinn/tls-client/profiles"
+	"github.com/divinedev111/tls-client/profiles"
 	"net"
 	"time"
 

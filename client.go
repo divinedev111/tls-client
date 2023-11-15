@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/bogdanfinn/tls-client/profiles"
+	"github.com/divinedev111/tls-client/profiles"
 	"io"
 	"net/url"
 	"strings"

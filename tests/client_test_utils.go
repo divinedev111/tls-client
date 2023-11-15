@@ -1,8 +1,8 @@
 package tests
 
 import (
-	"github.com/bogdanfinn/tls-client/profiles"
 	tls "github.com/bogdanfinn/utls"
+	"github.com/divinedev111/tls-client/profiles"
 )
 
 const (

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/bogdanfinn/tls-client/profiles"
+	"github.com/divinedev111/tls-client/profiles"
 	"io"
 	"log"
 	"net/url"
@@ -14,9 +14,9 @@ import (
 
 	http "github.com/bogdanfinn/fhttp"
 	"github.com/bogdanfinn/fhttp/http2"
-	tls_client "github.com/bogdanfinn/tls-client"
-	"github.com/bogdanfinn/tls-client/shared"
 	tls "github.com/bogdanfinn/utls"
+	tls_client "github.com/divinedev111/tls-client"
+	"github.com/divinedev111/tls-client/shared"
 )
 
 func main() {
@@ -349,7 +349,7 @@ func downloadImageWithTlsClient() {
 		log.Println(err)
 		return
 	}
-	defer file.Close()
+	//defer file.Close()
 
 	_, err = io.Copy(file, bytes.NewReader(bodyBytes))
 	if err != nil {
