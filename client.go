@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/divinedev111/tls-client/profiles"
 	"io"
 	"net/url"
 	"strings"
@@ -50,7 +49,7 @@ var DefaultTimeoutSeconds = 30
 
 var DefaultOptions = []HttpClientOption{
 	WithTimeoutSeconds(DefaultTimeoutSeconds),
-	WithClientProfile(profiles.DefaultClientProfile),
+	WithClientProfile(DefaultClientProfile),
 	WithRandomTLSExtensionOrder(),
 	WithNotFollowRedirects(),
 }
@@ -68,7 +67,7 @@ func NewHttpClient(logger Logger, options ...HttpClientOption) (HttpClient, erro
 		badPinHandler:      nil,
 		customRedirectFunc: nil,
 		defaultHeaders:     make(http.Header),
-		clientProfile:      profiles.DefaultClientProfile,
+		clientProfile:      DefaultClientProfile,
 		timeout:            time.Duration(DefaultTimeoutSeconds) * time.Second,
 	}
 
@@ -111,14 +110,14 @@ func validateConfig(_ *httpClientConfig) error {
 	return nil
 }
 
-func buildFromConfig(config *httpClientConfig) (*http.Client, profiles.ClientProfile, error) {
+func buildFromConfig(config *httpClientConfig) (*http.Client, ClientProfile, error) {
 	var dialer proxy.ContextDialer
 	dialer = newDirectDialer(config.timeout, config.localAddr)
 
 	if config.proxyUrl != "" {
 		proxyDialer, err := newConnectDialer(config.proxyUrl, config.timeout, config.localAddr)
 		if err != nil {
-			return nil, profiles.ClientProfile{}, err
+			return nil, ClientProfile{}, err
 		}
 
 		dialer = proxyDialer

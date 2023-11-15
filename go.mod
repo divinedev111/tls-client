@@ -1,10 +1,11 @@
 module github.com/divinedev111/tls-client
 
-go 1.18
+go 1.20
 
 require (
 	github.com/bogdanfinn/fhttp v0.5.24
 	github.com/bogdanfinn/utls v1.5.16
+	github.com/google/uuid v1.4.0
 	github.com/stretchr/testify v1.8.4
 	github.com/tam7t/hpkp v0.0.0-20160821193359-2b70b4024ed5
 	golang.org/x/net v0.18.0

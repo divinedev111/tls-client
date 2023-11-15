@@ -2,7 +2,6 @@ package tests
 
 import (
 	"fmt"
-	"github.com/divinedev111/tls-client/profiles"
 	"testing"
 	"time"
 
@@ -18,7 +17,7 @@ func TestClient_RedirectNoFollowWithSwitch(t *testing.T) {
 	defer testServer.Close()
 
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_105),
+		tls_client.WithClientProfile(tls_client.Chrome_105),
 		tls_client.WithNotFollowRedirects(),
 	}
 
@@ -57,7 +56,7 @@ func TestClient_RedirectFollowWithSwitch(t *testing.T) {
 	defer testServer.Close()
 
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_105),
+		tls_client.WithClientProfile(tls_client.Chrome_105),
 	}
 
 	client, err := tls_client.NewHttpClient(tls_client.NewNoopLogger(), options...)
@@ -95,7 +94,7 @@ func TestClient_TestFailWithTimeout(t *testing.T) {
 	defer testServer.Close()
 
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_105),
+		tls_client.WithClientProfile(tls_client.Chrome_105),
 		tls_client.WithTimeoutSeconds(3),
 	}
 

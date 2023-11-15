@@ -54,14 +54,13 @@ import (
 
 	http "github.com/bogdanfinn/fhttp"
 	tls_client "github.com/divinedev111/tls-client"
-	"github.com/divinedev111/tls-client/profiles"
 )
 
 func main() {
     jar := tls_client.NewCookieJar()
 	options := []tls_client.HttpClientOption{
 		tls_client.WithTimeoutSeconds(30),
-		tls_client.WithClientProfile(profiles.Chrome_105),
+		tls_client.WithClientProfile(tls_client.Chrome_105),
 		tls_client.WithNotFollowRedirects(),
 		tls_client.WithCookieJar(jar), // create cookieJar instance and pass it as argument
 	}

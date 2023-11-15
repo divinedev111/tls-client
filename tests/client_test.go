@@ -2,7 +2,6 @@ package tests
 
 import (
 	"encoding/json"
-	"github.com/divinedev111/tls-client/profiles"
 	"io"
 	"testing"
 	"time"
@@ -14,12 +13,6 @@ import (
 )
 
 func TestClients(t *testing.T) {
-	t.Log("testing chrome 117")
-	chrome_117(t)
-	time.Sleep(2 * time.Second)
-	t.Log("testing firefox 117")
-	firefox_117(t)
-	time.Sleep(2 * time.Second)
 	t.Log("testing chrome 112")
 	chrome112(t)
 	time.Sleep(2 * time.Second)
@@ -116,7 +109,7 @@ var defaultOkHttp4Header = http.Header{
 
 func chrome112(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_112),
+		tls_client.WithClientProfile(tls_client.Chrome_112),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -141,7 +134,7 @@ func chrome112(t *testing.T) {
 
 func chrome111(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_111),
+		tls_client.WithClientProfile(tls_client.Chrome_111),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -166,7 +159,7 @@ func chrome111(t *testing.T) {
 
 func chrome110(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_110),
+		tls_client.WithClientProfile(tls_client.Chrome_110),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -191,7 +184,7 @@ func chrome110(t *testing.T) {
 
 func chrome109(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_109),
+		tls_client.WithClientProfile(tls_client.Chrome_109),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -216,7 +209,7 @@ func chrome109(t *testing.T) {
 
 func chrome108(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_108),
+		tls_client.WithClientProfile(tls_client.Chrome_108),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -241,7 +234,7 @@ func chrome108(t *testing.T) {
 
 func chrome107(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_107),
+		tls_client.WithClientProfile(tls_client.Chrome_107),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -266,7 +259,7 @@ func chrome107(t *testing.T) {
 
 func chrome105(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_105),
+		tls_client.WithClientProfile(tls_client.Chrome_105),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -291,7 +284,7 @@ func chrome105(t *testing.T) {
 
 func chrome104(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_104),
+		tls_client.WithClientProfile(tls_client.Chrome_104),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -316,7 +309,7 @@ func chrome104(t *testing.T) {
 
 func chrome103(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_103),
+		tls_client.WithClientProfile(tls_client.Chrome_103),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -341,7 +334,7 @@ func chrome103(t *testing.T) {
 
 func safari_16_0(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Safari_16_0),
+		tls_client.WithClientProfile(tls_client.Safari_16_0),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -366,7 +359,7 @@ func safari_16_0(t *testing.T) {
 
 func safari_iOS_16_0(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Safari_IOS_16_0),
+		tls_client.WithClientProfile(tls_client.Safari_IOS_16_0),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -391,7 +384,7 @@ func safari_iOS_16_0(t *testing.T) {
 
 func firefox_105(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Firefox_105),
+		tls_client.WithClientProfile(tls_client.Firefox_105),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -416,7 +409,7 @@ func firefox_105(t *testing.T) {
 
 func firefox_106(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Firefox_106),
+		tls_client.WithClientProfile(tls_client.Firefox_106),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -441,7 +434,7 @@ func firefox_106(t *testing.T) {
 
 func firefox_108(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Firefox_108),
+		tls_client.WithClientProfile(tls_client.Firefox_108),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -464,59 +457,9 @@ func firefox_108(t *testing.T) {
 	compareResponse(t, "firefox", clientFingerprints[firefox][tls.HelloFirefox_108.Str()], resp)
 }
 
-func chrome_117(t *testing.T) {
-	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_117),
-	}
-
-	client, err := tls_client.NewHttpClient(nil, options...)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	req, err := http.NewRequest(http.MethodGet, peetApiEndpoint, nil)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	req.Header = defaultHeader
-
-	resp, err := client.Do(req)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	compareResponse(t, "chrome", clientFingerprints[chrome][profiles.Chrome_117.GetClientHelloStr()], resp)
-}
-
-func firefox_117(t *testing.T) {
-	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Firefox_117),
-	}
-
-	client, err := tls_client.NewHttpClient(nil, options...)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	req, err := http.NewRequest(http.MethodGet, peetApiEndpoint, nil)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	req.Header = defaultHeader
-
-	resp, err := client.Do(req)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	compareResponse(t, "firefox", clientFingerprints[firefox][profiles.Firefox_117.GetClientHelloStr()], resp)
-}
-
 func firefox_110(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Firefox_110),
+		tls_client.WithClientProfile(tls_client.Firefox_110),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -541,7 +484,7 @@ func firefox_110(t *testing.T) {
 
 func opera_91(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Opera_91),
+		tls_client.WithClientProfile(tls_client.Opera_91),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -601,7 +544,7 @@ func compareResponse(t *testing.T, clientName string, expectedValues map[string]
 
 func okhttp4Android13(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Okhttp4Android13),
+		tls_client.WithClientProfile(tls_client.Okhttp4Android13),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -621,12 +564,12 @@ func okhttp4Android13(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	compareResponse(t, "okhttp4 android 13", clientFingerprints[okhttpAndroid][profiles.Okhttp4Android13.GetClientHelloStr()], resp)
+	compareResponse(t, "okhttp4 android 13", clientFingerprints[okhttpAndroid][tls_client.Okhttp4Android13.GetClientHelloStr()], resp)
 }
 
 func okhttp4Android12(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Okhttp4Android12),
+		tls_client.WithClientProfile(tls_client.Okhttp4Android12),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -646,12 +589,12 @@ func okhttp4Android12(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	compareResponse(t, "okhttp4 android 12", clientFingerprints[okhttpAndroid][profiles.Okhttp4Android12.GetClientHelloStr()], resp)
+	compareResponse(t, "okhttp4 android 12", clientFingerprints[okhttpAndroid][tls_client.Okhttp4Android12.GetClientHelloStr()], resp)
 }
 
 func okhttp4Android11(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Okhttp4Android11),
+		tls_client.WithClientProfile(tls_client.Okhttp4Android11),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -671,12 +614,12 @@ func okhttp4Android11(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	compareResponse(t, "okhttp4 android 11", clientFingerprints[okhttpAndroid][profiles.Okhttp4Android11.GetClientHelloStr()], resp)
+	compareResponse(t, "okhttp4 android 11", clientFingerprints[okhttpAndroid][tls_client.Okhttp4Android11.GetClientHelloStr()], resp)
 }
 
 func okhttp4Android10(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Okhttp4Android10),
+		tls_client.WithClientProfile(tls_client.Okhttp4Android10),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -696,12 +639,12 @@ func okhttp4Android10(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	compareResponse(t, "okhttp4 android 10", clientFingerprints[okhttpAndroid][profiles.Okhttp4Android10.GetClientHelloStr()], resp)
+	compareResponse(t, "okhttp4 android 10", clientFingerprints[okhttpAndroid][tls_client.Okhttp4Android10.GetClientHelloStr()], resp)
 }
 
 func okhttp4Android9(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Okhttp4Android9),
+		tls_client.WithClientProfile(tls_client.Okhttp4Android9),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -721,12 +664,12 @@ func okhttp4Android9(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	compareResponse(t, "okhttp4 android 9", clientFingerprints[okhttpAndroid][profiles.Okhttp4Android9.GetClientHelloStr()], resp)
+	compareResponse(t, "okhttp4 android 9", clientFingerprints[okhttpAndroid][tls_client.Okhttp4Android9.GetClientHelloStr()], resp)
 }
 
 func okhttp4Android8(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Okhttp4Android8),
+		tls_client.WithClientProfile(tls_client.Okhttp4Android8),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -746,12 +689,12 @@ func okhttp4Android8(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	compareResponse(t, "okhttp4 android 8", clientFingerprints[okhttpAndroid][profiles.Okhttp4Android8.GetClientHelloStr()], resp)
+	compareResponse(t, "okhttp4 android 8", clientFingerprints[okhttpAndroid][tls_client.Okhttp4Android8.GetClientHelloStr()], resp)
 }
 
 func okhttp4Android7(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Okhttp4Android7),
+		tls_client.WithClientProfile(tls_client.Okhttp4Android7),
 	}
 
 	client, err := tls_client.NewHttpClient(nil, options...)
@@ -771,5 +714,5 @@ func okhttp4Android7(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	compareResponse(t, "okhttp4 android 7", clientFingerprints[okhttpAndroid][profiles.Okhttp4Android7.GetClientHelloStr()], resp)
+	compareResponse(t, "okhttp4 android 7", clientFingerprints[okhttpAndroid][tls_client.Okhttp4Android7.GetClientHelloStr()], resp)
 }

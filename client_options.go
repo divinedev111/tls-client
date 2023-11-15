@@ -3,7 +3,6 @@ package tls_client
 import (
 	"crypto/x509"
 	"fmt"
-	"github.com/divinedev111/tls-client/profiles"
 	"net"
 	"time"
 
@@ -44,7 +43,7 @@ type httpClientConfig struct {
 	serverNameOverwrite         string
 	transportOptions            *TransportOptions
 	cookieJar                   http.CookieJar
-	clientProfile               profiles.ClientProfile
+	clientProfile               ClientProfile
 	withRandomTlsExtensionOrder bool
 	forceHttp1                  bool
 	timeout                     time.Duration
@@ -199,7 +198,7 @@ func WithForceHttp1() HttpClientOption {
 }
 
 // WithClientProfile configures a TLS client to use the specified client profile.
-func WithClientProfile(clientProfile profiles.ClientProfile) HttpClientOption {
+func WithClientProfile(clientProfile ClientProfile) HttpClientOption {
 	return func(config *httpClientConfig) {
 		config.clientProfile = clientProfile
 	}

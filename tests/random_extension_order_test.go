@@ -3,7 +3,6 @@ package tests
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/divinedev111/tls-client/profiles"
 	"io"
 	"strings"
 	"testing"
@@ -16,7 +15,7 @@ import (
 
 func TestClient_RandomExtensionOrderChrome(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.Chrome_107),
+		tls_client.WithClientProfile(tls_client.Chrome_107),
 		tls_client.WithRandomTLSExtensionOrder(),
 	}
 
@@ -66,7 +65,7 @@ func TestClient_RandomExtensionOrderChrome(t *testing.T) {
 
 func TestClient_RandomExtensionOrderCustom(t *testing.T) {
 	options := []tls_client.HttpClientOption{
-		tls_client.WithClientProfile(profiles.CloudflareCustom),
+		tls_client.WithClientProfile(tls_client.CloudflareCustom),
 		tls_client.WithRandomTLSExtensionOrder(),
 	}
 

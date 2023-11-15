@@ -289,7 +289,7 @@ func (c *connectDialer) DialContext(ctx context.Context, network, address string
 			if err != nil {
 				return nil, err
 			}
-			err = tlsConn.HandshakeContext(ctx)
+			err = tlsConn.Handshake()
 			if err != nil {
 				return nil, err
 			}
